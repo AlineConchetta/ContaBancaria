@@ -2,24 +2,46 @@ package conta_bancaria;
 
 import java.util.Scanner;
 
+
 import conta_bancaria.model.Conta;
+import conta_bancaria.model.ContaCorrente;
+import conta_bancaria.model.ContaPoupança;
 import conta_bancaria.util.Cores;
 
 public class Menu {
+
+	static Scanner leia = new Scanner(System.in);
 
 	public static void main(String[] args) {
 
 		// Teste da Classe Conta
 		Conta c1 = new Conta(1, 123, 1, "Adriana", 10000.0f);
 		c1.visualizar();
-		c1.sacar(12000.0f);
+		System.out.println("exibir o Soldo: " + c1.getSaldo());
+		c1.setSaldo(2000000.00f);
+		c1.visualizar();
+		c1.sacar(210000.00f);
 		c1.visualizar();
 		c1.depositar(5000.0f);
 		c1.visualizar();
 
-		Scanner leia = new Scanner(System.in);
+		Conta c2 = new Conta(2, 123, 1, "Vitor Nascimento", 300000.00f);
+		c2.visualizar();
+		
+		ContaCorrente cc1 = new ContaCorrente(3, 456, 1, "Felipe", 100000.00f, 2000.00f);
+		cc1.visualizar();
+		cc1.sacar(201000.00f);
+		cc1.visualizar();
+		
+		ContaPoupança cp1 = new ContaPoupança (3, 567, 2, "Aline", 2000.00f, 2000.00f, 2);
+		cp1.visualizar();
+		cp1.depositar(500.00f);
+		
+		
 
-		int opcao;
+		int opcao = 0;
+		
+		
 
 		while (true) {
 
@@ -43,12 +65,13 @@ public class Menu {
 			System.out.println("*****************************************************");
 			System.out.println("Entre com a opção desejada:                          ");
 			System.out.println("                                                     " + Cores.TEXT_RESET);
-
+			opcao = leia.nextInt();
+			
 			opcao = leia.nextInt();
 
 			if (opcao == 9) {
 				System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brazil com Z - O seu Futuro começa aqui!");
-				sobre();
+                  		sobre();
 				leia.close();
 				System.exit(0);
 			}
