@@ -11,6 +11,12 @@ public class ContaCorrente extends Conta{
 	}
 
 	public float getLimite() {
+		
+	// atualizar limite caso o saldo seja negativo
+		
+		if(this.getSaldo() < 0)
+			return this.limite - Math.abs(this.getSaldo());
+		
 		return limite;
 	}
 
@@ -33,7 +39,7 @@ public class ContaCorrente extends Conta{
 	@Override
 	public void visualizar() {
 		super.visualizar();
-		System.out.println("Limite da conta: " + this.limite);
+		System.out.println("Limite da conta: " + this.getLimite());
 }
 	
 	

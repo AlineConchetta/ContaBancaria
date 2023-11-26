@@ -80,12 +80,8 @@ public abstract class Conta {
 		String tipo = "";
 
 		switch (this.tipo) {
-		case 1:
-			tipo = "Conta Corrente";
-			break;
-		case 2:
-			tipo = "Conta Poupança";
-			break;
+		case 1 -> tipo = "Conta Corrente";
+		case 2 -> tipo = "Conta Poupança";
 		}
 
 		System.out.println("\n\n***********************************************************");
